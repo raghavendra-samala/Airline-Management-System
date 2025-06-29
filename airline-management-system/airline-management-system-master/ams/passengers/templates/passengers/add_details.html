@@ -1,0 +1,43 @@
+{% extends 'user_baselayout.html' %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+    <br>
+
+    <div class="container bg-light">
+        <br>
+        <div class="text-center">
+            <h1 style="font-family: Arial;">Add the Passenger in this Trip</h1>
+            <br>
+        </div>
+        <form class="site-form" action="{% url 'passengers:details' %}" method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="container" style="width:90%">
+                        {{ form.name|as_crispy_field }}
+                        {{ form.age|as_crispy_field }}
+                        {{ form.gender|as_crispy_field }}
+                        <br>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-outline-secondary" value="ADD">
+                                Add
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="container" style="width:90%">
+                        <br>
+                        <img src="{% static 'addpassenger.jpg' %}" alt="seat" style="border-radius: 10px; max-width: 100%; min-width: 100%">
+                    </div>
+                </div>
+            </div>
+            <br><br>
+        </form>
+    </div>
+
+{% endblock %}

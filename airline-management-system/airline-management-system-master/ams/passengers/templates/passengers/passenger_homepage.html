@@ -1,0 +1,83 @@
+
+{% extends 'user_baselayout.html' %}
+
+{% block content %}
+{% load static %}
+
+<style>
+      p{
+  color: pink;
+}
+h2{
+  color:pink;
+}
+</style>
+    
+    <br>
+    
+    <div class="container bg-light" style="border-radius: 5px;">
+        {% if not user.is_anonymous %}
+            <h3 style="color:rgb(37, 45, 53); text-align:center; font-family:'Times New Roman', Times, serif;">
+                <br><br>Welcome {{ user }}<br><br>
+                <hr>
+            </h3>
+        {% endif %}
+        <br>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card mx-auto" style="width: 18rem;">
+                        <img src="{% static 'Wallet.jpg' %}" class="card-img-top" alt="Wallet" style="min-height: 100%; min-width: 100%; width: auto; height: auto;">
+                        <div class="card-body">
+                            <h2 class="card-text" style="color: rgb(167, 68, 3); font-size: 2em; text-align: center;">Perl Air Wallet</h2>
+                            <p class="card-text" style="color:black; text-align: center;">The balance in your Perl Air wallet is </p>
+                            <p class="card-text" style="color: black; font-size: 2em; text-align: center;">
+                                &#8377; {{ user.balance }} &nbsp
+                            </p>
+                            <p style="text-align: center;">
+                                <a href="/passengers/add_balance/" class="btn btn-primary">Add Balance</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mx-auto" style="width: 18rem;">
+                        <img src="{% static 'searchflights.jpg' %}" class="card-img-top" alt="search flights" style="min-height: 100%; min-width: 100%; width: auto; height: auto;">
+                        <div class="card-body">
+                            <h2 class="card-text" style="color: rgb(221, 132, 48); font-size: 2em; text-align: center;">Search for Flights</h2>
+                            <p class="card-text" style="color:black; text-align: center;">Start planning for your next journey with us </p>
+                            <p class="card-text" style="color: black; font-size: 1em; text-align: center;">
+                                <br>
+                            </p>
+                            <p style="text-align: center;">
+                                <a href="/passengers/book_ticket/" class="btn btn-primary">Search Flights</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mx-auto" style="width: 18rem;">
+                        <img src="{% static 'ticketphoto.jpg' %}" class="card-img-top" alt="view tickets" style="min-height: 100%; min-width: 100%; width: auto; height: auto;">
+                        <div class="card-body">
+                            <h2 class="card-text" style="color: rgb(11, 11, 66); font-size: 2em; text-align: center;">Upcoming Tickets</h2>
+                            <p class="card-text" style="color:black; text-align: center;">View your Upcoming Tickets with us </p>
+                            <p class="card-text" style="color: black; font-size: 1.9em; text-align: center;">
+                                <br>
+                            </p>
+                            <p style="text-align: center;">
+                                <a href="/passengers/upcoming_trips/" class="btn btn-primary">View Tickets</a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+
+
+{% endblock %}
+
+
+

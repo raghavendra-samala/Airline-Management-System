@@ -1,0 +1,28 @@
+ {% extends 'user_baselayout.html' %}
+
+{% block content %}
+
+    <div class="view_occupancy">
+        {% load functions %}
+        <br>
+        <div class="container bg-light" style="width: 90%; border-radius: 10px;">
+            <br>
+            <h1 style="text-align: center; color:rgb(81, 161, 0);">Occupancy Rates</h1>
+            <br><hr><br>
+            <div class="container" style="width: 90%;">
+                {% for flight in flights %}
+                <h4>Occupancy rate from {{ from }} to {{ to }} on {{ flight.journey_date }} = {% occu flight.first_class_occupancy_number flight.business_class_occupancy_number flight.economy_class_occupancy_number flight.first_class_seats flight.business_class_seats flight.economy_class_seats %}</h4>
+                <h6 style="font-family: Arial;"> First Class = {% division flight.first_class_occupancy_number flight.first_class_seats %}</h6>
+                <h6 style="font-family: Arial;"> Business Class = {% division flight.business_class_occupancy_number flight.business_class_seats %}</h6>
+                <h6 style="font-family: Arial;"> Economy Class = {% division flight.economy_class_occupancy_number flight.economy_class_seats %}</h6>
+                <h6 style="font-family: Arial;"> Extra Requests = {{ flight.extra_requests }}</h6>
+                <br>
+                <hr>
+                <br>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

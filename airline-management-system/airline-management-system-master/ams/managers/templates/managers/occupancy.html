@@ -1,0 +1,40 @@
+{% extends 'user_baselayout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+
+    <div class="container bg-light" style="width:90%; border-radius: 10px;">
+        <div class="text-center">
+            <br>
+            <h1 style="font-family:Arial, Helvetica, sans-serif">Occupancy Homepage</h1>
+            <p style="font-family: Arial, Helvetica, sans-serif;">Enter the airports to get occupancy rate between them</p>
+            <br>
+            <div class="occupancy">
+                <h1>Search Routes</h1>
+                <br>
+                <form action ="{% url 'managers:check' %}"  method = "post">
+                    {% csrf_token %}
+                    <h4>
+                    <div class="container" style="width:50%">
+                        <div class="text-center">
+                            {{ form.from_airport|as_crispy_field }}
+                            {{ form.to_airport|as_crispy_field }}
+                            {{ form.day|as_crispy_field}}
+                        </div>
+                    </div>
+                    </h4>
+                    <br>
+                    <button type="submit" class="btn btn-outline-primary" value="Submit">
+                        Submit
+                    </button>
+                </form>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

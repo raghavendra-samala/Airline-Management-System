@@ -1,0 +1,40 @@
+{% extends 'user_baselayout.html' %}
+
+{% block content %}
+<br>
+
+<div class = 'search_flights'>
+    {% load functions %}
+    <br>
+    <div class="container-fluid bg-light" style="max-width:95%; border-radius: 5px;">
+        <br>
+        <h1 style="text-align:center">Available Flights</h1>
+        <br>
+        {% for fli in flights %}
+        <div class="text-center">
+            <div class="container bg-secondary" style="max-width:50%; border-radius: 5px; padding-top: 5px;">
+                <h2 style="color:aliceblue">Flight ID : {{ fli.flight_id }}</h2>
+                <div class="container" style="max-width:70%">
+                    <ul class="list-group">
+                        <li class="list-group-item active" aria-current="true">Flight ID : {{ fli.flight_id }}</li>
+                        <li class="list-group-item">From : {{ fli.from_airport }}</li>
+                        <li class="list-group-item">To : {{ fli.to_airport }}</li>
+                        <li class="list-group-item">Departure Time : {{fli.departure_time}}</li>
+                        <li class="list-group-item">Arrival Time : {{fli.arrival_time }}</li>
+                        <li class="list-group-item">
+                            <button type = "button" class="btn btn-outline-info"><a href="{% url 'managers:del' slug=fli.slug %}">Delete this Flight</a> </button>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+            </div>
+            <hr>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+{% endblock %}

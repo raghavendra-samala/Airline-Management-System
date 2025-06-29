@@ -1,0 +1,38 @@
+{% extends 'user_baselayout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+{% load static %}
+<div class="container bg-light" style="border-radius: 5px;">
+    <br>
+    <div class="book_ticket">
+        <h1 style="text-align:center">Search Flights</h1>
+        <form action ="{% url 'passengers:book' %}"  method = "post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    {{ form.from_airport|as_crispy_field }}
+                    {{ form.to_airport|as_crispy_field }}
+                    {{ form.today1|as_crispy_field }}
+                    {{ form.seat_type|as_crispy_field }}
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-outline-info" value="Submit">
+                            Submit
+                        </button>
+                    </div>
+                    <br>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="text-center">
+                        <img src="{% static 'flyingflight.jpg' %}" alt="flight" style="border-radius: 50%; min-width: 70%; max-width: 70%; width: auto; height: auto">
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+

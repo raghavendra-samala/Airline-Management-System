@@ -1,0 +1,32 @@
+{% extends 'base_layout.html' %}
+
+{% block content %}
+
+    <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 mx-auto">
+              <div class="card">
+                <div class="card-header text-black">
+                  <h2>Sign Up</h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                       <div class="col-lg-6">
+                        <a type="button" class="btn btn-block" href="{% url 'user_accounts:passenger_signup' %}">Passenger Sign Up</a>
+                       </div>
+                       <div class="col-lg-6">
+                        <a type="button" class="btn btn-block" href="{% url 'user_accounts:manager_signup' %}">Manager Sign Up</a>
+                       </div>
+                       <div class="col-lg-6">
+                        <a type="button" class="btn btn-block" href="{% url 'user_accounts:login' %}">Login</a>
+                       </div>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+{% endblock %}

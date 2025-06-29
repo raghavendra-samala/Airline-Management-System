@@ -1,0 +1,45 @@
+
+{% extends 'user_baselayout.html' %}
+
+{% block content %}
+<br>
+
+<div class="container bg-light" style="width:90%; border-radius: 10px;">
+    <br>
+    <div class="text-center"?>
+        <h2>Flight Details</h2>
+        <div class="flight">
+            <h4>Flight ID : {{ flight.flight_id }}</h4>
+            <p style="font-size:1em">From Aiport : {{ flight.from_airport }}</p>
+            <p style="font-size:1em">To Aiport : {{ flight.to_airport }}</p>
+        </div>
+    </div>
+    <div class="container bg-dark" style="width:50%; border-radius:10px; color: aliceblue;">
+        <br>
+        <div class="text-center">
+            <h2>Ticket Details</h2>
+            <h4>Booking Confirmed</h1>
+                <br>
+            <p style="font-size:1em">Booking ID : {{ ticket.booking_id }}</p>
+            <p style="font-size:1em">Date : {{ ticket.date }}</p>
+            <p style="font-size:1em">From : {{ ticket.from_station }}</p>
+            <p style="font-size:1em">To : {{ ticket.to_station }}</p>
+            <p style="font-size:1em">Description : {{ ticket.description }}</p>
+            <p style="font-size:1em">Ticket Holder : {{ ticket.passenger_name }}</p>
+            <p style="font-size:1em">Seat Number : {{ ticket.seat_number }}</p>
+            <br>
+        </div>
+        <br>
+    </div>
+    <br>
+    <div class="text-center">
+        <button type = "button" class="btn btn-dark"><a href="{% url 'passengers:passenger' %}">Back to Home</a> </button>
+    </div>
+    <br>
+    <br>
+</div>
+
+<br>
+<br>
+
+{% endblock %}

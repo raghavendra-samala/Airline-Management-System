@@ -1,0 +1,57 @@
+{% extends 'user_baselayout.html' %}
+{% load static %}
+
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block content %}
+
+
+    <div class="container bg-light" style="border-radius: 10px; width:80%;">
+        <br>
+        <div class="text-center">
+            <h1 style="font-family: arial;"> Add Balance to your Perl Air Wallet </h1>
+        </div>
+        <br>
+    </div>
+
+    <br>
+    <div class="container-fluid bg-dark" style="width:95%; border-radius: 5px;">
+        <br>
+        <form class="site-form" action="{% url 'passengers:balance' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group" style="color:aliceblue; width:95%;">
+                <div class="row">
+                    <div class="col">
+                        <div class="text-center">
+                            <h3>Enter your credit card credentials here</h3>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 col-md-12">
+                        {{ form.card_number|as_crispy_field }}
+                        {{ form.expiry_date|as_crispy_field }}
+                    </div>
+                    <div class="col-lg-6 col-md-12">
+                        {{ form.cvv|as_crispy_field }}
+                        {{ form.balance|as_crispy_field }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="text-center">
+                            <br>
+                            <button type="submit" class="btn btn-outline-light" value="ADD">
+                                Add Money
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <br>
+    </div>
+
+{% endblock %}

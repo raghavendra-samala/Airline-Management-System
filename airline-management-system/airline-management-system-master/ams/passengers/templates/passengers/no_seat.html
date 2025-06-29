@@ -1,0 +1,11 @@
+{% extends 'user_baselayout.html' %}
+
+{% block content %}
+
+<div class="no_seat">
+    <h1>Sorry! No Vacant Seats available in the choosen seat class</h1>
+    <p>If you want to continue searching flights press the below button </p>
+    <button type = "button" ><a href="{% url 'passengers:search' %}">Search</a> </button>
+</div>
+
+{% endblock %}

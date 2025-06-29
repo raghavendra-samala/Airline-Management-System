@@ -1,0 +1,95 @@
+{% extends 'user_baselayout.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<br>
+    
+<div class="container bg-light" style="border-radius: 5px;">
+    {% if not user.is_anonymous %}
+        <h3 style="color:rgb(37, 45, 53); text-align:center; font-family:'Times New Roman', Times, serif;">
+            <br>Welcome {{ user }}
+            <br>
+        </h3>
+        <h6 style="color:rgb(37, 45, 53); text-align:center; font-family:'Times New Roman', Times, serif;">
+            <br>
+            Begin working to make Perl Air, a better place for everyone
+        </h6>
+        <h3 style="color:rgb(37, 45, 53); text-align:center; font-family:'Times New Roman', Times, serif;">
+            <hr>
+        </h3>
+    {% endif %}
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card mx-auto" style="width: 18rem;">
+                    <img src="{% static 'occupancyrates.jpg' %}" class="card-img-top" alt="Wallet" style="min-height: 100%; min-width: 100%; width: auto; height: auto;">
+                    <div class="card-body">
+                        <h2 class="card-text" style="color: rgb(55, 196, 0); font-size: 2em; text-align: center;">Check Occupancy Rate</h2>
+                        <p class="card-text" style="color:black; text-align: center;">View the Occupancy Rates of recent flights </p>
+                        <p style="text-align: center;">
+                            <a href="/managers/check_occupancy/" class="btn btn-primary">Check</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mx-auto" style="width: 18rem;">
+                    <img src="{% static 'changeschedule.jpg' %}" class="card-img-top" alt="search flights" style="min-height: 100%; min-width: 100%; width: auto; height: auto;">
+                    <div class="card-body">
+                        <h2 class="card-text" style="color: rgb(15, 36, 102); font-size: 2em; text-align: center;">Change Schedule</h2>
+                        <p class="card-text" style="color:black; text-align: center;">Change the Schedule of the flights as per demand and necessity </p>
+                        <p class="card-text" style="color: black; font-size: 1em; text-align: center;">
+                            <br>
+                        </p>
+                        <p style="text-align: center;">
+                            <a href="/managers/change_schedule/" class="btn btn-primary">Change</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mx-auto" style="width: 18rem;">
+                    <img src="{% static 'getprofit.jpg' %}" class="card-img-top" alt="view tickets" style="min-height: 100%; min-width: 100%; width: auto; height: auto;">
+                    <div class="card-body">
+                        <h2 class="card-text" style="color: rgb(230, 176, 1); font-size: 2em; text-align: center;">Get Profits</h2>
+                        <p class="card-text" style="color:black; text-align: center;">View the total profits earned by Perl Air in a given time window </p>
+                        <p class="card-text" style="color: black; font-size: 1em; text-align: center;">
+                            <br>
+                        </p>
+                        <p style="text-align: center;">
+                            <a href="/managers/get_profits/" class="btn btn-primary">View</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col">
+                <div class="card mx-auto" style="width: 18rem;">
+                    <img src="{% static 'changecost.jpg' %}" class="card-img-top" alt="Wallet" style="min-height: 100%; min-width: 100%; width: auto; height: auto;">
+                    <div class="card-body">
+                        <h2 class="card-text" style="color: rgb(33, 191, 212); font-size: 2em; text-align: center;">Change Prices</h2>
+                        <p class="card-text" style="color:black; text-align: center;">Change the prices for various flights to maximize our profits</p>
+                        <p class="card-text" style="color: black; font-size: 1em; text-align: center;">
+                            <br>
+                        </p>
+                        <p style="text-align: center;">
+                            <a href="/managers/change_costs/" class="btn btn-primary">Change</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col"></div>
+            <div class="col"></div>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
+
+
+{% endblock %}

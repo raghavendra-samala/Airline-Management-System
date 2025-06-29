@@ -1,0 +1,45 @@
+{% extends 'user_baselayout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<br>
+
+<div class="container bg-light" style="width: 90%; border-radius: 10px;">
+  <div class="text-center">
+    <p style="font-family: Arial;">
+      <br>
+      <h2>Flight ID : "{{ flight.flight_id }}"</h2>
+      <br>
+      From : {{ flight.from_airport }}
+      <br>
+      To : {{ flight.to_airport }}
+      <br>
+      Arrival Time : {{ flight.arrival_time }}
+      <br>
+      Departure Time : {{ flight.departure_time }}
+      <br>
+      <br>
+      <div class="container" style="width: 30%;">
+        <form action ="{% url 'passengers:choose_seat' slug=flight.slug %}"  method = "post">
+          {% csrf_token %}
+          <table>
+              {{ form.seat_number|as_crispy_field }}
+          </table>
+          <button type="submit" class="btn btn-outline-primary" value="Book">
+            Book
+        </button>
+        </form>
+      </div>
+    </p>
+  </div>
+  <br>
+  <br>
+  <br>
+</div>
+
+<br>
+<br>
+ 
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'user_baselayout.html' %}
+
+{% block content %}
+<br>
+
+<div class="container bg-light" style="width:90%; border-radius: 10px;">
+    <div class="text-center">
+        <br>
+        <h1>Here you can change the schedule</h1>
+        <p>Add or Delete Flights</p>
+        <h2>
+            <a href="/managers/add_flight/">
+                <button type="submit" class="btn btn-outline-primary" value="Submit">
+                    Add Flight
+                </button>
+            </a>
+        </h2>
+        <h3>
+            <a href="/managers/delete_flight/">
+                <button type="submit" class="btn btn-outline-primary" value="Submit">
+                    Delete Flight
+                </button>
+            </a>
+        </h3>
+        <br>
+        <br>
+    </div>
+    <hr>
+    <br>
+    <br>
+    <br>
+</div>
+<br>
+<br>
+<br>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'user_baselayout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+<br>
+<div class="container bg-light" style="width:90%; border-radius: 10px;">
+    <br>
+    <div class="text-center">
+        <h1>You can Change the costs of Flights here</h1>
+        <p>Select Airplane Type to which you want to change cost</p>
+    </div>
+    <br>
+    <div class="container" style="width:50%;">
+        <div class='text-center'>
+            <h3>
+                Select Type
+            </h3>
+            <br>
+            <form action ="{% url 'managers:costs' %}"  method = "post">
+                {% csrf_token %}
+                <table>
+                    {{ form.choice|as_crispy_field }}
+                </table>
+                <br>
+                <button type="submit" class="btn btn-outline-primary" value="Submit">
+                    Submit
+                </button>
+                <br>
+                <br>
+                <br>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base_layout.html' %}
+
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+
+    <div class="container bg-light" style="width:90%; border-radius: 10px;">
+        <div class="text-center">
+            <br>
+            <img src="{% static 'logo.jpg' %}" alt="logo" style="max-width:100%; max-height: 100%; border-radius: 10px">
+            <br>
+            <br>
+            <h1>Welcome To Perl Air</h1>
+            <p>If You haven't already created a account, Click Sign Up on the navigation bar and Select passenger or manager</p>
+            <p>If you already have a account, Log in</p>
+            <p>If You want to go to homepage you can click Perl Air on navigation bar</p>
+            <p>If you are a passenger you can book or modify or cancel Ticket here</p>
+            <p>But first you need to Add Balance to book Ticket</p>
+            <br>
+        </div>
+    </div>
+<br>
+
+{% endblock %}

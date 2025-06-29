@@ -1,0 +1,23 @@
+{% extends 'user_baselayout.html' %}
+
+{% block content %}
+<br>
+<div class="container bg-light" style="border-radius: 10px;">
+    <br>
+    <div class="text-center">
+        <p>PNR Number : {{ ticket.pnr }}</p>
+        <p>Ticket Holder : {{ ticket.passenger_name }}</p>
+        <p>Flight ID : {{ ticket.booking_id }}</p>
+        <p>Date of Travel : {{ ticket.journey_date }}</p>
+        <p>From : {{ ticket.from_station }}</p>
+        <p>To : {{ ticket.to_station }}</p>
+        <p>Seat Type : {{ ticket.seat_type }}</p>
+        <p>Seat Number : {{ ticket.seat_number }}</p>
+        <p>You can Cancel or Modify your Ticket at a penalty of 20percent of your Ticket Fare</p>
+        <button type = "button" ><a href="{% url 'passengers:del_ticket' slug=ticket.slug %}">Delete</a> </button>
+        <button type = "button" ><a href="{% url 'passengers:modify_ticket' slug=ticket.slug %}">Modify</a> </button>
+    </div>
+    <br>
+</div>
+
+{% endblock %}

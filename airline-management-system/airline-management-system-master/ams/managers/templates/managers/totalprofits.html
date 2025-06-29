@@ -1,0 +1,23 @@
+{% extends 'user_baselayout.html' %}
+
+{% block content %}
+<br>
+<br>
+
+<div class="container bg-light" style="width: 90%; border-radius: 10px;">
+    <div class="text-center">
+        <br><br><br><br>
+        <h3 style="text-align:center">The profits earned by Perl Air from {{lowerlimit}} till {{upperlimit}} are</h3>
+        <br>
+        <h1>
+            &#8377; {{ total_revenue }}
+        </h1>
+        <br><br><br><br>
+    </div>
+</div>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock %}

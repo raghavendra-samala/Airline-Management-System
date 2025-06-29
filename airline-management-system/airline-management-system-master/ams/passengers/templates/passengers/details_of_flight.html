@@ -1,0 +1,92 @@
+{% extends 'user_baselayout.html' %}
+
+{% load static %}
+
+{% block content %}
+<br>
+<br>
+<div class="container-fluid bg-secondary" style="width:95%; border-radius: 5px;">
+    <div class="row">
+        <div class="col-md-6">
+            <br>
+            <div class="text-center">
+                <div class="container" style="width:80%;">
+                    <ul class="list-group list-group-flush">
+                        <b>
+                        <li class="list-group-item list-group-item-info"><p style="font-size: 1.3em;"> Flight ID : {{ flight.flight_id }} </p></li>
+                        <li class="list-group-item list-group-item-warning"><p style="font-size: 1.3em;"> From : {{ flight.from_airport }} </p></li>
+                        <li class="list-group-item list-group-item-warning"><p style="font-size: 1.3em;"> To : {{ flight.to_airport }} </p></li>
+                        <li class="list-group-item list-group-item-primary"><p style="font-size: 1.3em;"> Departure Time : {{ flight.departure_time }} </p></li>
+                        <li class="list-group-item list-group-item-primary"><p style="font-size: 1.3em;"> Arrival Time : {{ flight.arrival_time }} </p></li>
+                        </b>
+                    </ul>
+                    <br>
+                    <ul class="list-group list-group-flush">
+                        <b>
+                        <li class="list-group-item list-group-item-danger">
+                            <p style="font-size: 1.3em;">
+                                <u>First Class</u><br>
+                                {% if first == 0 %} Tickets are not available
+                                {% else %} Available = {{ first }} || Fare {{ ffare }}
+                                {% endif %}
+                            </p>
+                        </li>
+                        <li class="list-group-item list-group-item-warning">
+                            <p style="font-size: 1.3em;"> 
+                                <u>Business Class</u><br>
+                                {% if business == 0 %} Tickets are not available
+                                {% else %} Available = {{ business }} || Fare {{ bfare }}
+                                {% endif %}
+                            </p>
+                        </li>
+                        <li class="list-group-item list-group-item-info">
+                            <p style="font-size: 1.3em;"> 
+                                <u>Economy Class</u><br>
+                                {% if economy == 0 %} Tickets are not available
+                                {% else %} Available = {{ economy }} || Fare {{ efare }}
+                                {% endif %}
+                            </p>
+                        </li>
+                        </b>
+                    </ul>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <br>
+            <div class="text-center">
+                <div class="container" style="width:80%;">
+                    
+                    <div class="text-center">
+                        <img src="{% static 'seatbookingpic.jpg' %}" alt="flight seat" style="border-radius: 10px; max-width: 100%; max-height: 100%; width: auto; height: auto;">
+                    </div>
+
+                    <br>
+
+                    <ul class="list-group list-group-flush">
+                        <b>
+                            <li class="list-group-item list-group-item-dark">
+                                <p style="font-size: 1.3em;">
+                                    You can choose your seat number<br>at an additional cost of &#8377; 200<br>
+                                </p>
+                                <button type = "button" class="btn btn-outline-dark" ><a href="{% url 'passengers:choose_seat' slug=flight.slug %}">Choose seat Number</a> </button>
+                            </li>
+                            <li class="list-group-item list-group-item-dark">
+                                <p style="font-size: 1.3em;">
+                                    If not, then click below to book<br>without selecting your seat<br>
+                                    A random seat will be allocated to you<br>
+                                </p>
+                                <button type = "button" class="btn btn-outline-dark" ><a href="{% url 'passengers:flight' slug=flight.slug %}">Book Seat</a> </button>
+                            </li>
+                        </b>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

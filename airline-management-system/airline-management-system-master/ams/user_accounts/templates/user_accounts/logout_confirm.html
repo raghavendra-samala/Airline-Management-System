@@ -1,0 +1,41 @@
+{% extends 'user_baselayout.html' %}
+
+{% block content %}
+<br>
+<br>
+<div class="container bg-light" style="width:90%; border-radius: 10px;">
+    <h3 style="text-align:center"><br><br> Are you sure you want to logout? </h3>
+    <br>
+        <p style="text-align:center">
+            <form class="logout-link" action="{% url 'user_accounts:logout' %}" method="post" style="text-align:center">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-primary" value="ADD">
+                    &nbsp YES &nbsp
+                </button>
+            </form>
+            <br>
+            {% if user.is_authenticated and user.is_Passenger %}
+                <h1 style="text-align:center">
+                    <a href="{% url 'passengers:passenger' %}" style="text-align:center">
+                        <button type="submit" class="btn btn-outline-primary" value="ADD">
+                            &nbsp NO &nbsp
+                        </button>
+                    </a>
+                </h1>
+            {% else %}
+                {% if user.is_authenticated and user.is_Manager %}
+                    <h1 style="text-align:center">
+                        <a href="{% url 'managers:manager' %}" style="text-align:center">
+                            <button type="submit" class="btn btn-outline-primary" value="ADD">
+                                &nbsp NO &nbsp
+                            </button>
+                        </a>
+                    </h1>
+                {% endif %}
+            {% endif %}
+        </p>
+        <br>
+        <br>
+</div>
+<br><br><br>
+{% endblock %}

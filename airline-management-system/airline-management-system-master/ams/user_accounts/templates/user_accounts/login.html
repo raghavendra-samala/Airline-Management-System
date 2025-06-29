@@ -1,0 +1,33 @@
+{% extends 'base_layout.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+    <br>
+
+    <div class="container bg-light" style="width:90%; border-radius: 10px;">
+        <br>
+        <h1 style="text-align:center; font-family:Arial, Helvetica, sans-serif">User Log In</h1>
+        <br>
+        <br>
+        <div class="text-center">
+            <div class="container" style="width:50%">
+                <form class="site-form" action="user_accounts/login/" method="post">
+                    {% csrf_token %}
+                    <h4>
+                        {{ form.username|as_crispy_field }}
+                        {{ form.password|as_crispy_field }}
+                    </h4>
+                    <br>
+                    <button type="submit" class="btn btn-outline-info" value="Login">
+                        Login
+                    </button>
+                    <br>
+                    <br>
+                    <br><br>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
